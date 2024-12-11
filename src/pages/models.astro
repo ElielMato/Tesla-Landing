@@ -1,0 +1,33 @@
+---
+import HeaderModels from "../components/ModelS/HeaderModels.astro";
+import HeaderModelSScroll from "../components/ModelS/HeaderModelSScroll.astro";
+import SectionModelS from "../components/ModelS/SectionModelS.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Model S | Tesla">
+    
+
+    <HeaderModelSScroll/>
+
+    <HeaderModels/>
+    
+    <SectionModelS/>
+
+<script>
+  window.addEventListener('scroll', function() {
+    var windowHeight = window.innerHeight;
+    var fullHeight = document.body.offsetHeight;
+
+    var scrolled = window.scrollY;
+    var scrollPercentage = (scrolled / (fullHeight - windowHeight)) * 100;
+
+    if (scrollPercentage > 10) {
+      document.getElementById('headerScroll').style.display = 'flex';
+    } else {
+      document.getElementById('headerScroll').style.display = 'none';
+    }
+  });
+</script>   
+</Layout>
+
